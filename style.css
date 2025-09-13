@@ -1,19 +1,31 @@
+
 body {
     font-family: sans-serif;
-    margin: 20px;
+    margin: 10px;
     background: #f9f9f9;
   }
-  
+
   nav {
     margin-bottom: 20px;
   }
   
+  /* ナビをスマホでも縦に折り返す */
   nav a {
-    margin-right: 15px;
+    display: inline-block;
+    margin: 8px 8px 8px 0;
     text-decoration: none;
     color: #007bff;
+    font-size: 16px;
   }
   
+  @media (max-width: 600px) {
+    h1 {
+      font-size: 20px;
+    }
+    nav a {
+      font-size: 14px;
+    }
+  }
   nav a:hover {
     text-decoration: underline;
   }
