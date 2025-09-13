@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>持ち物リスト</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">ホーム</a>
+    <a href="things.html">持ち物リスト</a>
+  </nav>
+  <h1>持ち物リスト</h1>
+  <ul id="checklist">
+    <li><input type="checkbox"> パスポート</li>
+    <li><input type="checkbox"> 航空券（電子チケット）</li>
+    <li><input type="checkbox"> 現金・クレジットカード</li>
+    <li><input type="checkbox"> スマホ・充電器</li>
+  </ul>
+
+  <script>
+    // チェック状態を保存する処理（ブラウザごとに保持）
+    const checklist = document.querySelectorAll("#checklist input");
+    checklist.forEach((item, i) => {
+      // ページ読み込み時に状態を復元
+      item.checked = localStorage.getItem("check" + i) === "true";
+      // 状態が変わったら保存
+      item.addEventListener("change", () => {
+        localStorage.setItem("check" + i, item.checked);
+      });
+    });
+  </script>
+</body>
+</html>
